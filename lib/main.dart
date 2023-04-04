@@ -104,7 +104,7 @@ class _NavBarPageState extends State<NavBarPage> {
     final tabs = {
       'Homepage': HomepageWidget(),
       'TwoWeek': TwoWeekWidget(),
-      'Testing': TestingWidget(),
+      'Timetable': TimetableWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
     return Scaffold(
@@ -161,7 +161,7 @@ class _NavBarPageState extends State<NavBarPage> {
                   size: 24.0,
                 ),
                 Text(
-                  'Home',
+                  'Sem',
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     color: currentIndex == 1
@@ -178,13 +178,15 @@ class _NavBarPageState extends State<NavBarPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
-                  Icons.five_g,
+                  currentIndex == 2
+                      ? Icons.dashboard_rounded
+                      : Icons.dashboard_outlined,
                   color:
                       currentIndex == 2 ? Color(0x00000000) : Color(0x00000000),
-                  size: 24.0,
+                  size: 32.0,
                 ),
                 Text(
-                  'Home',
+                  'Timetable\n',
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     color: currentIndex == 2
