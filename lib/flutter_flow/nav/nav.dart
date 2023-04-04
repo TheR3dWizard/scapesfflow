@@ -58,14 +58,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'Testing',
               path: 'testing',
-              builder: (context, params) => params.isEmpty
-                  ? NavBarPage(initialPage: 'Testing')
-                  : TestingWidget(),
+              builder: (context, params) => TestingWidget(),
             ),
             FFRoute(
               name: 'Timetable',
               path: 'timetable',
-              builder: (context, params) => TimetableWidget(),
+              builder: (context, params) => params.isEmpty
+                  ? NavBarPage(initialPage: 'Timetable')
+                  : TimetableWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),
