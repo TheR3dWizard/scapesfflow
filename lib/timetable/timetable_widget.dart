@@ -14,6 +14,8 @@ import 'package:provider/provider.dart';
 import 'timetable_model.dart';
 export 'timetable_model.dart';
 
+String dayofweek = 'Monday';
+
 class TimetableWidget extends StatefulWidget {
   const TimetableWidget({Key? key}) : super(key: key);
 
