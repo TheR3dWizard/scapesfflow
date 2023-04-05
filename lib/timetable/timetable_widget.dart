@@ -421,7 +421,7 @@ class _TimetableWidgetState extends State<TimetableWidget>
                                                                 getJsonField(
                                                                   FFAppState()
                                                                       .timetable,
-                                                                  r'''$.dayofweek[0]''',
+                                                                  r'''$.monday[0]''',
                                                                 )
                                                                     .toString()
                                                                     .maybeHandleOverflow(
