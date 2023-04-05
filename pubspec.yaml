@@ -28,13 +28,13 @@ dependencies:
   auto_size_text: 3.0.0
   cached_network_image: 3.2.1
   equatable: 2.0.3
-  floating_bottom_navigation_bar: 1.5.2
   flutter_animate: 1.0.0
   flutter_cache_manager: 3.3.0
   font_awesome_flutter: 10.1.0
   from_css_color: 2.0.0
   go_router: 3.1.0
   google_fonts: 3.0.1
+  google_nav_bar: 5.0.5
   intl: 0.17.0
   json_path: 0.4.1
   mime_type: 1.0.0
