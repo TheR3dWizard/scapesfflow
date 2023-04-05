@@ -421,7 +421,7 @@ class _TimetableWidgetState extends State<TimetableWidget>
                                                                 getJsonField(
                                                                   FFAppState()
                                                                       .timetable,
-                                                                  r'''$.dayofweek[0]''',
+                                                                  r'''$.monday[0]''',
                                                                 )
                                                                     .toString()
                                                                     .maybeHandleOverflow(
@@ -2161,8 +2161,10 @@ class _TimetableWidgetState extends State<TimetableWidget>
                         padding:
                             EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
                         child: FFButtonWidget(
-                          onPressed: () {
-                            print('Button pressed ...');
+                          onPressed: () async {
+                            setState(() {
+                              FFAppState().dayofweek = '';
+                            });
                           },
                           text: 'Tuesday',
                           options: FFButtonOptions(
@@ -2193,8 +2195,10 @@ class _TimetableWidgetState extends State<TimetableWidget>
                         padding:
                             EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
                         child: FFButtonWidget(
-                          onPressed: () {
-                            print('Button pressed ...');
+                          onPressed: () async {
+                            setState(() {
+                              FFAppState().dayofweek = 'Wednesday';
+                            });
                           },
                           text: 'Wednesday',
                           options: FFButtonOptions(
@@ -2234,8 +2238,10 @@ class _TimetableWidgetState extends State<TimetableWidget>
                         padding:
                             EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
                         child: FFButtonWidget(
-                          onPressed: () {
-                            print('Button pressed ...');
+                          onPressed: () async {
+                            setState(() {
+                              FFAppState().dayofweek = 'Thursday';
+                            });
                           },
                           text: 'Thursday',
                           options: FFButtonOptions(
@@ -2266,8 +2272,10 @@ class _TimetableWidgetState extends State<TimetableWidget>
                         padding:
                             EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
                         child: FFButtonWidget(
-                          onPressed: () {
-                            print('Button pressed ...');
+                          onPressed: () async {
+                            setState(() {
+                              FFAppState().dayofweek = 'Friday';
+                            });
                           },
                           text: 'Friday',
                           options: FFButtonOptions(
