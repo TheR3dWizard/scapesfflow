@@ -9,11 +9,59 @@ export 'api_manager.dart' show ApiCallResponse;
 
 const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 
-class TimetableCall {
+/// Start Timetable Group Code
+
+class TimetableGroup {
+  static String baseUrl =
+      'https://psg-scapes-backend.onrender.com/api/v1/c22z2/timetable';
+  static Map<String, String> headers = {};
+  static MondayCall mondayCall = MondayCall();
+  static TuesdayCall tuesdayCall = TuesdayCall();
+}
+
+class MondayCall {
+  Future<ApiCallResponse> call() {
+    return ApiManager.instance.makeApiCall(
+      callName: 'Monday',
+      apiUrl: '${TimetableGroup.baseUrl}/monday',
+      callType: ApiCallType.GET,
+      headers: {
+        ...TimetableGroup.headers,
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+}
+
+class TuesdayCall {
+  Future<ApiCallResponse> call() {
+    return ApiManager.instance.makeApiCall(
+      callName: 'Tuesday',
+      apiUrl: '${TimetableGroup.baseUrl}/tuesday',
+      callType: ApiCallType.GET,
+      headers: {
+        ...TimetableGroup.headers,
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+}
+
+/// End Timetable Group Code
+
+class TimetableapiCall {
   static Future<ApiCallResponse> call() {
     return ApiManager.instance.makeApiCall(
-      callName: 'Timetable',
-      apiUrl: 'http://localhost:5000/',
+      callName: 'timetableapi',
+      apiUrl: 'https://psg-scapes-backend.onrender.com/api/v1/c22z2/timetable',
       callType: ApiCallType.GET,
       headers: {},
       params: {},
@@ -23,6 +71,12 @@ class TimetableCall {
       cache: false,
     );
   }
+
+  static dynamic monday(dynamic response) => getJsonField(
+        response,
+        r'''$[0].monday[0]''',
+        true,
+      );
 }
 
 class ApiPagingParams {
