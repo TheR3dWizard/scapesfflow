@@ -14,7 +14,7 @@ import 'package:provider/provider.dart';
 import 'timetable_model.dart';
 export 'timetable_model.dart';
 
-String dayofweek = 'Monday';
+String dayofweek = FFAppState().dayofweek;
 
 class TimetableWidget extends StatefulWidget {
   const TimetableWidget({Key? key}) : super(key: key);
@@ -423,7 +423,7 @@ class _TimetableWidgetState extends State<TimetableWidget>
                                                                 getJsonField(
                                                                   FFAppState()
                                                                       .timetable,
-                                                                  r'''$.monday[0]''',
+                                                                  r'''$.dayofweek[0]''',
                                                                 )
                                                                     .toString()
                                                                     .maybeHandleOverflow(
