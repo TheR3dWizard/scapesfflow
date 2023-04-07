@@ -45,6 +45,12 @@ class FFAppState extends ChangeNotifier {
   set timetable(dynamic _value) {
     _timetable = _value;
   }
+
+  String _clcode = '';
+  String get clcode => _clcode;
+  set clcode(String _value) {
+    _clcode = _value;
+  }
 }
 
 LatLng? _latLngFromString(String? val) {
