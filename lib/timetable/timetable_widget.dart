@@ -492,7 +492,7 @@ class _TimetableWidgetState extends State<TimetableWidget>
                                                                         getJsonField(
                                                                           textTimetableapiResponse
                                                                               .jsonBody,
-                                                                          r'''$[0].1.subject''',
+                                                                          r'''$[0].monday[0]''',
                                                                         )
                                                                             .toString()
                                                                             .maybeHandleOverflow(
