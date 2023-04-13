@@ -1723,7 +1723,7 @@ class _TimetableWidgetState extends State<TimetableWidget>
                                                                           return AutoSizeText(
                                                                             getJsonField(
                                                                               textMondayResponse.jsonBody,
-                                                                              r'''$[0].1.subject''',
+                                                                              r'''$[0].6.subject''',
                                                                             ).toString().maybeHandleOverflow(
                                                                                   maxChars: 32,
                                                                                   replacement: '…',
@@ -1963,7 +1963,7 @@ class _TimetableWidgetState extends State<TimetableWidget>
                                                                         getJsonField(
                                                                           textMondayResponse
                                                                               .jsonBody,
-                                                                          r'''$[0].6.subject''',
+                                                                          r'''$[0].7.subject''',
                                                                         )
                                                                             .toString()
                                                                             .maybeHandleOverflow(
@@ -2203,7 +2203,7 @@ class _TimetableWidgetState extends State<TimetableWidget>
                                                                         getJsonField(
                                                                           textMondayResponse
                                                                               .jsonBody,
-                                                                          r'''$[0].7.subject''',
+                                                                          r'''$[0].8.subject''',
                                                                         )
                                                                             .toString()
                                                                             .maybeHandleOverflow(
