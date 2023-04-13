@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -145,7 +144,8 @@ class _TimetableWidgetState extends State<TimetableWidget>
                                               EdgeInsetsDirectional.fromSTEB(
                                                   16.0, 16.0, 0.0, 16.0),
                                           child: Text(
-                                            FFAppState().dayofweek,
+                                            dateTimeFormat(
+                                                'EEEE', getCurrentTimestamp),
                                             textAlign: TextAlign.start,
                                             style: FlutterFlowTheme.of(context)
                                                 .displaySmall,
@@ -463,7 +463,8 @@ class _TimetableWidgetState extends State<TimetableWidget>
                                                                 children: [
                                                                   FutureBuilder<
                                                                       ApiCallResponse>(
-                                                                    future: TimetableapiCall
+                                                                    future: TimetableGroup
+                                                                        .mondayCall
                                                                         .call(),
                                                                     builder:
                                                                         (context,
@@ -485,14 +486,1486 @@ class _TimetableWidgetState extends State<TimetableWidget>
                                                                           ),
                                                                         );
                                                                       }
-                                                                      final textTimetableapiResponse =
+                                                                      final textMondayResponse =
                                                                           snapshot
                                                                               .data!;
                                                                       return AutoSizeText(
                                                                         getJsonField(
-                                                                          textTimetableapiResponse
+                                                                          textMondayResponse
                                                                               .jsonBody,
-                                                                          r'''$[0].monday[0]''',
+                                                                          r'''$[0].1.subject''',
+                                                                        )
+                                                                            .toString()
+                                                                            .maybeHandleOverflow(
+                                                                              maxChars: 32,
+                                                                              replacement: '…',
+                                                                            ),
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .titleMedium,
+                                                                      );
+                                                                    },
+                                                                  ),
+                                                                  if (responsiveVisibility(
+                                                                    context:
+                                                                        context,
+                                                                    tabletLandscape:
+                                                                        false,
+                                                                    desktop:
+                                                                        false,
+                                                                  ))
+                                                                    Padding(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          2.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                      child:
+                                                                          Text(
+                                                                        'Timing',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium,
+                                                                      ),
+                                                                    ),
+                                                                ],
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        Expanded(
+                                                          child: Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            crossAxisAlignment:
+                                                                CrossAxisAlignment
+                                                                    .end,
+                                                            children: [
+                                                              Text(
+                                                                'Status',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primary,
+                                                                    ),
+                                                              ),
+                                                              if (responsiveVisibility(
+                                                                context:
+                                                                    context,
+                                                                tablet: false,
+                                                                tabletLandscape:
+                                                                    false,
+                                                                desktop: false,
+                                                              ))
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          2.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                  child: Text(
+                                                                    'Whether its over or not',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium,
+                                                                  ),
+                                                                ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 0.0, 2.0),
+                                                child: Container(
+                                                  width: double.infinity,
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryBackground,
+                                                    boxShadow: [
+                                                      BoxShadow(
+                                                        blurRadius: 0.0,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .lineColor,
+                                                        offset:
+                                                            Offset(0.0, 1.0),
+                                                      )
+                                                    ],
+                                                  ),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 2.0),
+                                                    child: Container(
+                                                      width: double.infinity,
+                                                      decoration: BoxDecoration(
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .secondaryBackground,
+                                                        boxShadow: [
+                                                          BoxShadow(
+                                                            blurRadius: 0.0,
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .lineColor,
+                                                            offset: Offset(
+                                                                0.0, 1.0),
+                                                          )
+                                                        ],
+                                                      ),
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    12.0,
+                                                                    12.0,
+                                                                    12.0,
+                                                                    12.0),
+                                                        child: Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            Expanded(
+                                                              flex: 2,
+                                                              child: Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            12.0,
+                                                                            0.0),
+                                                                    child:
+                                                                        ClipRRect(
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              12.0),
+                                                                      child:
+                                                                          CachedNetworkImage(
+                                                                        imageUrl:
+                                                                            'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8dXNlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=900&q=60',
+                                                                        width:
+                                                                            40.0,
+                                                                        height:
+                                                                            40.0,
+                                                                        fit: BoxFit
+                                                                            .cover,
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                  Column(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    crossAxisAlignment:
+                                                                        CrossAxisAlignment
+                                                                            .start,
+                                                                    children: [
+                                                                      FutureBuilder<
+                                                                          ApiCallResponse>(
+                                                                        future: TimetableGroup
+                                                                            .mondayCall
+                                                                            .call(),
+                                                                        builder:
+                                                                            (context,
+                                                                                snapshot) {
+                                                                          // Customize what your widget looks like when it's loading.
+                                                                          if (!snapshot
+                                                                              .hasData) {
+                                                                            return Center(
+                                                                              child: SizedBox(
+                                                                                width: 50.0,
+                                                                                height: 50.0,
+                                                                                child: CircularProgressIndicator(
+                                                                                  color: Color(0xC31566C6),
+                                                                                ),
+                                                                              ),
+                                                                            );
+                                                                          }
+                                                                          final textMondayResponse =
+                                                                              snapshot.data!;
+                                                                          return AutoSizeText(
+                                                                            getJsonField(
+                                                                              textMondayResponse.jsonBody,
+                                                                              r'''$[0].2.subject''',
+                                                                            ).toString().maybeHandleOverflow(
+                                                                                  maxChars: 32,
+                                                                                  replacement: '…',
+                                                                                ),
+                                                                            style:
+                                                                                FlutterFlowTheme.of(context).titleMedium,
+                                                                          );
+                                                                        },
+                                                                      ),
+                                                                      if (responsiveVisibility(
+                                                                        context:
+                                                                            context,
+                                                                        tabletLandscape:
+                                                                            false,
+                                                                        desktop:
+                                                                            false,
+                                                                      ))
+                                                                        Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              0.0,
+                                                                              2.0,
+                                                                              0.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              Text(
+                                                                            'Timing',
+                                                                            style:
+                                                                                FlutterFlowTheme.of(context).bodyMedium,
+                                                                          ),
+                                                                        ),
+                                                                    ],
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                            if (responsiveVisibility(
+                                                              context: context,
+                                                              phone: false,
+                                                              tablet: false,
+                                                            ))
+                                                              Expanded(
+                                                                flex: 2,
+                                                                child: Text(
+                                                                  'user@domain.com',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium,
+                                                                ),
+                                                              ),
+                                                            if (responsiveVisibility(
+                                                              context: context,
+                                                              phone: false,
+                                                            ))
+                                                              Expanded(
+                                                                child: Text(
+                                                                  dateTimeFormat(
+                                                                      'relative',
+                                                                      getCurrentTimestamp),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium,
+                                                                ),
+                                                              ),
+                                                            if (responsiveVisibility(
+                                                              context: context,
+                                                              phone: false,
+                                                              tablet: false,
+                                                            ))
+                                                              Expanded(
+                                                                child: Text(
+                                                                  dateTimeFormat(
+                                                                      'yMMMd',
+                                                                      getCurrentTimestamp),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium,
+                                                                ),
+                                                              ),
+                                                            Expanded(
+                                                              child: Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .end,
+                                                                children: [
+                                                                  Text(
+                                                                    'Status',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Poppins',
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).primary,
+                                                                        ),
+                                                                  ),
+                                                                  if (responsiveVisibility(
+                                                                    context:
+                                                                        context,
+                                                                    tablet:
+                                                                        false,
+                                                                    tabletLandscape:
+                                                                        false,
+                                                                    desktop:
+                                                                        false,
+                                                                  ))
+                                                                    Padding(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          2.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                      child:
+                                                                          Text(
+                                                                        'Whether its over or not',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium,
+                                                                      ),
+                                                                    ),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 0.0, 2.0),
+                                                child: Container(
+                                                  width: double.infinity,
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryBackground,
+                                                    boxShadow: [
+                                                      BoxShadow(
+                                                        blurRadius: 0.0,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .lineColor,
+                                                        offset:
+                                                            Offset(0.0, 1.0),
+                                                      )
+                                                    ],
+                                                  ),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 2.0),
+                                                    child: Container(
+                                                      width: double.infinity,
+                                                      decoration: BoxDecoration(
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .secondaryBackground,
+                                                        boxShadow: [
+                                                          BoxShadow(
+                                                            blurRadius: 0.0,
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .lineColor,
+                                                            offset: Offset(
+                                                                0.0, 1.0),
+                                                          )
+                                                        ],
+                                                      ),
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    12.0,
+                                                                    12.0,
+                                                                    12.0,
+                                                                    12.0),
+                                                        child: Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            Expanded(
+                                                              flex: 2,
+                                                              child: Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            12.0,
+                                                                            0.0),
+                                                                    child:
+                                                                        ClipRRect(
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              12.0),
+                                                                      child:
+                                                                          CachedNetworkImage(
+                                                                        imageUrl:
+                                                                            'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8dXNlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=900&q=60',
+                                                                        width:
+                                                                            40.0,
+                                                                        height:
+                                                                            40.0,
+                                                                        fit: BoxFit
+                                                                            .cover,
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                  Column(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    crossAxisAlignment:
+                                                                        CrossAxisAlignment
+                                                                            .start,
+                                                                    children: [
+                                                                      FutureBuilder<
+                                                                          ApiCallResponse>(
+                                                                        future: TimetableGroup
+                                                                            .mondayCall
+                                                                            .call(),
+                                                                        builder:
+                                                                            (context,
+                                                                                snapshot) {
+                                                                          // Customize what your widget looks like when it's loading.
+                                                                          if (!snapshot
+                                                                              .hasData) {
+                                                                            return Center(
+                                                                              child: SizedBox(
+                                                                                width: 50.0,
+                                                                                height: 50.0,
+                                                                                child: CircularProgressIndicator(
+                                                                                  color: Color(0xC31566C6),
+                                                                                ),
+                                                                              ),
+                                                                            );
+                                                                          }
+                                                                          final textMondayResponse =
+                                                                              snapshot.data!;
+                                                                          return AutoSizeText(
+                                                                            getJsonField(
+                                                                              textMondayResponse.jsonBody,
+                                                                              r'''$[0].3.subject''',
+                                                                            ).toString().maybeHandleOverflow(
+                                                                                  maxChars: 32,
+                                                                                  replacement: '…',
+                                                                                ),
+                                                                            style:
+                                                                                FlutterFlowTheme.of(context).titleMedium,
+                                                                          );
+                                                                        },
+                                                                      ),
+                                                                      if (responsiveVisibility(
+                                                                        context:
+                                                                            context,
+                                                                        tabletLandscape:
+                                                                            false,
+                                                                        desktop:
+                                                                            false,
+                                                                      ))
+                                                                        Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              0.0,
+                                                                              2.0,
+                                                                              0.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              Text(
+                                                                            'Timing',
+                                                                            style:
+                                                                                FlutterFlowTheme.of(context).bodyMedium,
+                                                                          ),
+                                                                        ),
+                                                                    ],
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                            if (responsiveVisibility(
+                                                              context: context,
+                                                              phone: false,
+                                                              tablet: false,
+                                                            ))
+                                                              Expanded(
+                                                                flex: 2,
+                                                                child: Text(
+                                                                  'user@domain.com',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium,
+                                                                ),
+                                                              ),
+                                                            if (responsiveVisibility(
+                                                              context: context,
+                                                              phone: false,
+                                                            ))
+                                                              Expanded(
+                                                                child: Text(
+                                                                  dateTimeFormat(
+                                                                      'relative',
+                                                                      getCurrentTimestamp),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium,
+                                                                ),
+                                                              ),
+                                                            if (responsiveVisibility(
+                                                              context: context,
+                                                              phone: false,
+                                                              tablet: false,
+                                                            ))
+                                                              Expanded(
+                                                                child: Text(
+                                                                  dateTimeFormat(
+                                                                      'yMMMd',
+                                                                      getCurrentTimestamp),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium,
+                                                                ),
+                                                              ),
+                                                            Expanded(
+                                                              child: Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .end,
+                                                                children: [
+                                                                  Text(
+                                                                    'Status',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Poppins',
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).primary,
+                                                                        ),
+                                                                  ),
+                                                                  if (responsiveVisibility(
+                                                                    context:
+                                                                        context,
+                                                                    tablet:
+                                                                        false,
+                                                                    tabletLandscape:
+                                                                        false,
+                                                                    desktop:
+                                                                        false,
+                                                                  ))
+                                                                    Padding(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          2.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                      child:
+                                                                          Text(
+                                                                        'Whether its over or not',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium,
+                                                                      ),
+                                                                    ),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 0.0, 2.0),
+                                                child: Container(
+                                                  width: double.infinity,
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryBackground,
+                                                    boxShadow: [
+                                                      BoxShadow(
+                                                        blurRadius: 0.0,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .lineColor,
+                                                        offset:
+                                                            Offset(0.0, 1.0),
+                                                      )
+                                                    ],
+                                                  ),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 2.0),
+                                                    child: Container(
+                                                      width: double.infinity,
+                                                      decoration: BoxDecoration(
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .secondaryBackground,
+                                                        boxShadow: [
+                                                          BoxShadow(
+                                                            blurRadius: 0.0,
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .lineColor,
+                                                            offset: Offset(
+                                                                0.0, 1.0),
+                                                          )
+                                                        ],
+                                                      ),
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    12.0,
+                                                                    12.0,
+                                                                    12.0,
+                                                                    12.0),
+                                                        child: Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            Expanded(
+                                                              flex: 2,
+                                                              child: Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            12.0,
+                                                                            0.0),
+                                                                    child:
+                                                                        ClipRRect(
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              12.0),
+                                                                      child:
+                                                                          CachedNetworkImage(
+                                                                        imageUrl:
+                                                                            'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8dXNlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=900&q=60',
+                                                                        width:
+                                                                            40.0,
+                                                                        height:
+                                                                            40.0,
+                                                                        fit: BoxFit
+                                                                            .cover,
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                  Column(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    crossAxisAlignment:
+                                                                        CrossAxisAlignment
+                                                                            .start,
+                                                                    children: [
+                                                                      FutureBuilder<
+                                                                          ApiCallResponse>(
+                                                                        future: TimetableGroup
+                                                                            .mondayCall
+                                                                            .call(),
+                                                                        builder:
+                                                                            (context,
+                                                                                snapshot) {
+                                                                          // Customize what your widget looks like when it's loading.
+                                                                          if (!snapshot
+                                                                              .hasData) {
+                                                                            return Center(
+                                                                              child: SizedBox(
+                                                                                width: 50.0,
+                                                                                height: 50.0,
+                                                                                child: CircularProgressIndicator(
+                                                                                  color: Color(0xC31566C6),
+                                                                                ),
+                                                                              ),
+                                                                            );
+                                                                          }
+                                                                          final textMondayResponse =
+                                                                              snapshot.data!;
+                                                                          return AutoSizeText(
+                                                                            getJsonField(
+                                                                              textMondayResponse.jsonBody,
+                                                                              r'''$[0].4.subject''',
+                                                                            ).toString().maybeHandleOverflow(
+                                                                                  maxChars: 32,
+                                                                                  replacement: '…',
+                                                                                ),
+                                                                            style:
+                                                                                FlutterFlowTheme.of(context).titleMedium,
+                                                                          );
+                                                                        },
+                                                                      ),
+                                                                      if (responsiveVisibility(
+                                                                        context:
+                                                                            context,
+                                                                        tabletLandscape:
+                                                                            false,
+                                                                        desktop:
+                                                                            false,
+                                                                      ))
+                                                                        Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              0.0,
+                                                                              2.0,
+                                                                              0.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              Text(
+                                                                            'Timing',
+                                                                            style:
+                                                                                FlutterFlowTheme.of(context).bodyMedium,
+                                                                          ),
+                                                                        ),
+                                                                    ],
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                            if (responsiveVisibility(
+                                                              context: context,
+                                                              phone: false,
+                                                              tablet: false,
+                                                            ))
+                                                              Expanded(
+                                                                flex: 2,
+                                                                child: Text(
+                                                                  'user@domain.com',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium,
+                                                                ),
+                                                              ),
+                                                            if (responsiveVisibility(
+                                                              context: context,
+                                                              phone: false,
+                                                            ))
+                                                              Expanded(
+                                                                child: Text(
+                                                                  dateTimeFormat(
+                                                                      'relative',
+                                                                      getCurrentTimestamp),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium,
+                                                                ),
+                                                              ),
+                                                            if (responsiveVisibility(
+                                                              context: context,
+                                                              phone: false,
+                                                              tablet: false,
+                                                            ))
+                                                              Expanded(
+                                                                child: Text(
+                                                                  dateTimeFormat(
+                                                                      'yMMMd',
+                                                                      getCurrentTimestamp),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium,
+                                                                ),
+                                                              ),
+                                                            Expanded(
+                                                              child: Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .end,
+                                                                children: [
+                                                                  Text(
+                                                                    'Status',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Poppins',
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).primary,
+                                                                        ),
+                                                                  ),
+                                                                  if (responsiveVisibility(
+                                                                    context:
+                                                                        context,
+                                                                    tablet:
+                                                                        false,
+                                                                    tabletLandscape:
+                                                                        false,
+                                                                    desktop:
+                                                                        false,
+                                                                  ))
+                                                                    Padding(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          2.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                      child:
+                                                                          Text(
+                                                                        'Whether its over or not',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium,
+                                                                      ),
+                                                                    ),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 0.0, 2.0),
+                                                child: Container(
+                                                  width: double.infinity,
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryBackground,
+                                                    boxShadow: [
+                                                      BoxShadow(
+                                                        blurRadius: 0.0,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .lineColor,
+                                                        offset:
+                                                            Offset(0.0, 1.0),
+                                                      )
+                                                    ],
+                                                  ),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 2.0),
+                                                    child: Container(
+                                                      width: double.infinity,
+                                                      decoration: BoxDecoration(
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .secondaryBackground,
+                                                        boxShadow: [
+                                                          BoxShadow(
+                                                            blurRadius: 0.0,
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .lineColor,
+                                                            offset: Offset(
+                                                                0.0, 1.0),
+                                                          )
+                                                        ],
+                                                      ),
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    12.0,
+                                                                    12.0,
+                                                                    12.0,
+                                                                    12.0),
+                                                        child: Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            Expanded(
+                                                              flex: 2,
+                                                              child: Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            12.0,
+                                                                            0.0),
+                                                                    child:
+                                                                        ClipRRect(
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              12.0),
+                                                                      child:
+                                                                          CachedNetworkImage(
+                                                                        imageUrl:
+                                                                            'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8dXNlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=900&q=60',
+                                                                        width:
+                                                                            40.0,
+                                                                        height:
+                                                                            40.0,
+                                                                        fit: BoxFit
+                                                                            .cover,
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                  Column(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    crossAxisAlignment:
+                                                                        CrossAxisAlignment
+                                                                            .start,
+                                                                    children: [
+                                                                      FutureBuilder<
+                                                                          ApiCallResponse>(
+                                                                        future: TimetableGroup
+                                                                            .mondayCall
+                                                                            .call(),
+                                                                        builder:
+                                                                            (context,
+                                                                                snapshot) {
+                                                                          // Customize what your widget looks like when it's loading.
+                                                                          if (!snapshot
+                                                                              .hasData) {
+                                                                            return Center(
+                                                                              child: SizedBox(
+                                                                                width: 50.0,
+                                                                                height: 50.0,
+                                                                                child: CircularProgressIndicator(
+                                                                                  color: Color(0xC31566C6),
+                                                                                ),
+                                                                              ),
+                                                                            );
+                                                                          }
+                                                                          final textMondayResponse =
+                                                                              snapshot.data!;
+                                                                          return AutoSizeText(
+                                                                            getJsonField(
+                                                                              textMondayResponse.jsonBody,
+                                                                              r'''$[0].5.subject''',
+                                                                            ).toString().maybeHandleOverflow(
+                                                                                  maxChars: 32,
+                                                                                  replacement: '…',
+                                                                                ),
+                                                                            style:
+                                                                                FlutterFlowTheme.of(context).titleMedium,
+                                                                          );
+                                                                        },
+                                                                      ),
+                                                                      if (responsiveVisibility(
+                                                                        context:
+                                                                            context,
+                                                                        tabletLandscape:
+                                                                            false,
+                                                                        desktop:
+                                                                            false,
+                                                                      ))
+                                                                        Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              0.0,
+                                                                              2.0,
+                                                                              0.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              Text(
+                                                                            'Timing',
+                                                                            style:
+                                                                                FlutterFlowTheme.of(context).bodyMedium,
+                                                                          ),
+                                                                        ),
+                                                                    ],
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                            if (responsiveVisibility(
+                                                              context: context,
+                                                              phone: false,
+                                                              tablet: false,
+                                                            ))
+                                                              Expanded(
+                                                                flex: 2,
+                                                                child: Text(
+                                                                  'user@domain.com',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium,
+                                                                ),
+                                                              ),
+                                                            if (responsiveVisibility(
+                                                              context: context,
+                                                              phone: false,
+                                                            ))
+                                                              Expanded(
+                                                                child: Text(
+                                                                  dateTimeFormat(
+                                                                      'relative',
+                                                                      getCurrentTimestamp),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium,
+                                                                ),
+                                                              ),
+                                                            if (responsiveVisibility(
+                                                              context: context,
+                                                              phone: false,
+                                                              tablet: false,
+                                                            ))
+                                                              Expanded(
+                                                                child: Text(
+                                                                  dateTimeFormat(
+                                                                      'yMMMd',
+                                                                      getCurrentTimestamp),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium,
+                                                                ),
+                                                              ),
+                                                            Expanded(
+                                                              child: Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .end,
+                                                                children: [
+                                                                  Text(
+                                                                    'Status',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Poppins',
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).primary,
+                                                                        ),
+                                                                  ),
+                                                                  if (responsiveVisibility(
+                                                                    context:
+                                                                        context,
+                                                                    tablet:
+                                                                        false,
+                                                                    tabletLandscape:
+                                                                        false,
+                                                                    desktop:
+                                                                        false,
+                                                                  ))
+                                                                    Padding(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          2.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                      child:
+                                                                          Text(
+                                                                        'Whether its over or not',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium,
+                                                                      ),
+                                                                    ),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 0.0, 2.0),
+                                                child: Container(
+                                                  width: double.infinity,
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryBackground,
+                                                    boxShadow: [
+                                                      BoxShadow(
+                                                        blurRadius: 0.0,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .lineColor,
+                                                        offset:
+                                                            Offset(0.0, 1.0),
+                                                      )
+                                                    ],
+                                                  ),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 2.0),
+                                                    child: Container(
+                                                      width: double.infinity,
+                                                      decoration: BoxDecoration(
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .secondaryBackground,
+                                                        boxShadow: [
+                                                          BoxShadow(
+                                                            blurRadius: 0.0,
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .lineColor,
+                                                            offset: Offset(
+                                                                0.0, 1.0),
+                                                          )
+                                                        ],
+                                                      ),
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    12.0,
+                                                                    12.0,
+                                                                    12.0,
+                                                                    12.0),
+                                                        child: Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            Expanded(
+                                                              flex: 2,
+                                                              child: Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            12.0,
+                                                                            0.0),
+                                                                    child:
+                                                                        ClipRRect(
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              12.0),
+                                                                      child:
+                                                                          CachedNetworkImage(
+                                                                        imageUrl:
+                                                                            'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8dXNlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=900&q=60',
+                                                                        width:
+                                                                            40.0,
+                                                                        height:
+                                                                            40.0,
+                                                                        fit: BoxFit
+                                                                            .cover,
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                  Column(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    crossAxisAlignment:
+                                                                        CrossAxisAlignment
+                                                                            .start,
+                                                                    children: [
+                                                                      FutureBuilder<
+                                                                          ApiCallResponse>(
+                                                                        future: TimetableGroup
+                                                                            .mondayCall
+                                                                            .call(),
+                                                                        builder:
+                                                                            (context,
+                                                                                snapshot) {
+                                                                          // Customize what your widget looks like when it's loading.
+                                                                          if (!snapshot
+                                                                              .hasData) {
+                                                                            return Center(
+                                                                              child: SizedBox(
+                                                                                width: 50.0,
+                                                                                height: 50.0,
+                                                                                child: CircularProgressIndicator(
+                                                                                  color: Color(0xC31566C6),
+                                                                                ),
+                                                                              ),
+                                                                            );
+                                                                          }
+                                                                          final textMondayResponse =
+                                                                              snapshot.data!;
+                                                                          return AutoSizeText(
+                                                                            getJsonField(
+                                                                              textMondayResponse.jsonBody,
+                                                                              r'''$[0].6.subject''',
+                                                                            ).toString().maybeHandleOverflow(
+                                                                                  maxChars: 32,
+                                                                                  replacement: '…',
+                                                                                ),
+                                                                            style:
+                                                                                FlutterFlowTheme.of(context).titleMedium,
+                                                                          );
+                                                                        },
+                                                                      ),
+                                                                      if (responsiveVisibility(
+                                                                        context:
+                                                                            context,
+                                                                        tabletLandscape:
+                                                                            false,
+                                                                        desktop:
+                                                                            false,
+                                                                      ))
+                                                                        Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              0.0,
+                                                                              2.0,
+                                                                              0.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              Text(
+                                                                            'Timing',
+                                                                            style:
+                                                                                FlutterFlowTheme.of(context).bodyMedium,
+                                                                          ),
+                                                                        ),
+                                                                    ],
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                            if (responsiveVisibility(
+                                                              context: context,
+                                                              phone: false,
+                                                              tablet: false,
+                                                            ))
+                                                              Expanded(
+                                                                flex: 2,
+                                                                child: Text(
+                                                                  'user@domain.com',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium,
+                                                                ),
+                                                              ),
+                                                            if (responsiveVisibility(
+                                                              context: context,
+                                                              phone: false,
+                                                            ))
+                                                              Expanded(
+                                                                child: Text(
+                                                                  dateTimeFormat(
+                                                                      'relative',
+                                                                      getCurrentTimestamp),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium,
+                                                                ),
+                                                              ),
+                                                            if (responsiveVisibility(
+                                                              context: context,
+                                                              phone: false,
+                                                              tablet: false,
+                                                            ))
+                                                              Expanded(
+                                                                child: Text(
+                                                                  dateTimeFormat(
+                                                                      'yMMMd',
+                                                                      getCurrentTimestamp),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium,
+                                                                ),
+                                                              ),
+                                                            Expanded(
+                                                              child: Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .end,
+                                                                children: [
+                                                                  Text(
+                                                                    'Status',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Poppins',
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).primary,
+                                                                        ),
+                                                                  ),
+                                                                  if (responsiveVisibility(
+                                                                    context:
+                                                                        context,
+                                                                    tablet:
+                                                                        false,
+                                                                    tabletLandscape:
+                                                                        false,
+                                                                    desktop:
+                                                                        false,
+                                                                  ))
+                                                                    Padding(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          2.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                      child:
+                                                                          Text(
+                                                                        'Whether its over or not',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium,
+                                                                      ),
+                                                                    ),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 0.0, 2.0),
+                                                child: Container(
+                                                  width: double.infinity,
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryBackground,
+                                                    boxShadow: [
+                                                      BoxShadow(
+                                                        blurRadius: 0.0,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .lineColor,
+                                                        offset:
+                                                            Offset(0.0, 1.0),
+                                                      )
+                                                    ],
+                                                  ),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(
+                                                                12.0,
+                                                                12.0,
+                                                                12.0,
+                                                                12.0),
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        Expanded(
+                                                          flex: 2,
+                                                          child: Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            children: [
+                                                              Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            12.0,
+                                                                            0.0),
+                                                                child:
+                                                                    ClipRRect(
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              12.0),
+                                                                  child:
+                                                                      CachedNetworkImage(
+                                                                    imageUrl:
+                                                                        'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8dXNlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=900&q=60',
+                                                                    width: 40.0,
+                                                                    height:
+                                                                        40.0,
+                                                                    fit: BoxFit
+                                                                        .cover,
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                              Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .start,
+                                                                children: [
+                                                                  FutureBuilder<
+                                                                      ApiCallResponse>(
+                                                                    future: TimetableGroup
+                                                                        .mondayCall
+                                                                        .call(),
+                                                                    builder:
+                                                                        (context,
+                                                                            snapshot) {
+                                                                      // Customize what your widget looks like when it's loading.
+                                                                      if (!snapshot
+                                                                          .hasData) {
+                                                                        return Center(
+                                                                          child:
+                                                                              SizedBox(
+                                                                            width:
+                                                                                50.0,
+                                                                            height:
+                                                                                50.0,
+                                                                            child:
+                                                                                CircularProgressIndicator(
+                                                                              color: Color(0xC31566C6),
+                                                                            ),
+                                                                          ),
+                                                                        );
+                                                                      }
+                                                                      final textMondayResponse =
+                                                                          snapshot
+                                                                              .data!;
+                                                                      return AutoSizeText(
+                                                                        getJsonField(
+                                                                          textMondayResponse
+                                                                              .jsonBody,
+                                                                          r'''$[0].7.subject''',
                                                                         )
                                                                             .toString()
                                                                             .maybeHandleOverflow(
@@ -650,1181 +2123,6 @@ class _TimetableWidgetState extends State<TimetableWidget>
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 2.0),
-                                                    child: Container(
-                                                      width: double.infinity,
-                                                      decoration: BoxDecoration(
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .secondaryBackground,
-                                                        boxShadow: [
-                                                          BoxShadow(
-                                                            blurRadius: 0.0,
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .lineColor,
-                                                            offset: Offset(
-                                                                0.0, 1.0),
-                                                          )
-                                                        ],
-                                                      ),
-                                                      child: Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    12.0,
-                                                                    12.0,
-                                                                    12.0,
-                                                                    12.0),
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          children: [
-                                                            Expanded(
-                                                              flex: 2,
-                                                              child: Row(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                children: [
-                                                                  Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            12.0,
-                                                                            0.0),
-                                                                    child:
-                                                                        ClipRRect(
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              12.0),
-                                                                      child:
-                                                                          CachedNetworkImage(
-                                                                        imageUrl:
-                                                                            'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8dXNlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=900&q=60',
-                                                                        width:
-                                                                            40.0,
-                                                                        height:
-                                                                            40.0,
-                                                                        fit: BoxFit
-                                                                            .cover,
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                  Column(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    crossAxisAlignment:
-                                                                        CrossAxisAlignment
-                                                                            .start,
-                                                                    children: [
-                                                                      AutoSizeText(
-                                                                        valueOrDefault<
-                                                                            String>(
-                                                                          random_data.randomName(
-                                                                              true,
-                                                                              false),
-                                                                          'Course Code/Name',
-                                                                        ).maybeHandleOverflow(
-                                                                          maxChars:
-                                                                              32,
-                                                                          replacement:
-                                                                              '…',
-                                                                        ),
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .titleMedium,
-                                                                      ),
-                                                                      if (responsiveVisibility(
-                                                                        context:
-                                                                            context,
-                                                                        tabletLandscape:
-                                                                            false,
-                                                                        desktop:
-                                                                            false,
-                                                                      ))
-                                                                        Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0.0,
-                                                                              2.0,
-                                                                              0.0,
-                                                                              0.0),
-                                                                          child:
-                                                                              Text(
-                                                                            'Timing',
-                                                                            style:
-                                                                                FlutterFlowTheme.of(context).bodyMedium,
-                                                                          ),
-                                                                        ),
-                                                                    ],
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            ),
-                                                            if (responsiveVisibility(
-                                                              context: context,
-                                                              phone: false,
-                                                              tablet: false,
-                                                            ))
-                                                              Expanded(
-                                                                flex: 2,
-                                                                child: Text(
-                                                                  'user@domain.com',
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium,
-                                                                ),
-                                                              ),
-                                                            if (responsiveVisibility(
-                                                              context: context,
-                                                              phone: false,
-                                                            ))
-                                                              Expanded(
-                                                                child: Text(
-                                                                  dateTimeFormat(
-                                                                      'relative',
-                                                                      getCurrentTimestamp),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium,
-                                                                ),
-                                                              ),
-                                                            if (responsiveVisibility(
-                                                              context: context,
-                                                              phone: false,
-                                                              tablet: false,
-                                                            ))
-                                                              Expanded(
-                                                                child: Text(
-                                                                  dateTimeFormat(
-                                                                      'yMMMd',
-                                                                      getCurrentTimestamp),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium,
-                                                                ),
-                                                              ),
-                                                            Expanded(
-                                                              child: Column(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                crossAxisAlignment:
-                                                                    CrossAxisAlignment
-                                                                        .end,
-                                                                children: [
-                                                                  Text(
-                                                                    'Status',
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Poppins',
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).primary,
-                                                                        ),
-                                                                  ),
-                                                                  if (responsiveVisibility(
-                                                                    context:
-                                                                        context,
-                                                                    tablet:
-                                                                        false,
-                                                                    tabletLandscape:
-                                                                        false,
-                                                                    desktop:
-                                                                        false,
-                                                                  ))
-                                                                    Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          2.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                      child:
-                                                                          Text(
-                                                                        'Whether its over or not',
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium,
-                                                                      ),
-                                                                    ),
-                                                                ],
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 0.0, 0.0, 2.0),
-                                                child: Container(
-                                                  width: double.infinity,
-                                                  decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryBackground,
-                                                    boxShadow: [
-                                                      BoxShadow(
-                                                        blurRadius: 0.0,
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .lineColor,
-                                                        offset:
-                                                            Offset(0.0, 1.0),
-                                                      )
-                                                    ],
-                                                  ),
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 2.0),
-                                                    child: Container(
-                                                      width: double.infinity,
-                                                      decoration: BoxDecoration(
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .secondaryBackground,
-                                                        boxShadow: [
-                                                          BoxShadow(
-                                                            blurRadius: 0.0,
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .lineColor,
-                                                            offset: Offset(
-                                                                0.0, 1.0),
-                                                          )
-                                                        ],
-                                                      ),
-                                                      child: Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    12.0,
-                                                                    12.0,
-                                                                    12.0,
-                                                                    12.0),
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          children: [
-                                                            Expanded(
-                                                              flex: 2,
-                                                              child: Row(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                children: [
-                                                                  Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            12.0,
-                                                                            0.0),
-                                                                    child:
-                                                                        ClipRRect(
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              12.0),
-                                                                      child:
-                                                                          CachedNetworkImage(
-                                                                        imageUrl:
-                                                                            'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8dXNlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=900&q=60',
-                                                                        width:
-                                                                            40.0,
-                                                                        height:
-                                                                            40.0,
-                                                                        fit: BoxFit
-                                                                            .cover,
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                  Column(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    crossAxisAlignment:
-                                                                        CrossAxisAlignment
-                                                                            .start,
-                                                                    children: [
-                                                                      AutoSizeText(
-                                                                        valueOrDefault<
-                                                                            String>(
-                                                                          random_data.randomName(
-                                                                              true,
-                                                                              false),
-                                                                          'Course Code/Name',
-                                                                        ).maybeHandleOverflow(
-                                                                          maxChars:
-                                                                              32,
-                                                                          replacement:
-                                                                              '…',
-                                                                        ),
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .titleMedium,
-                                                                      ),
-                                                                      if (responsiveVisibility(
-                                                                        context:
-                                                                            context,
-                                                                        tabletLandscape:
-                                                                            false,
-                                                                        desktop:
-                                                                            false,
-                                                                      ))
-                                                                        Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0.0,
-                                                                              2.0,
-                                                                              0.0,
-                                                                              0.0),
-                                                                          child:
-                                                                              Text(
-                                                                            'Timing',
-                                                                            style:
-                                                                                FlutterFlowTheme.of(context).bodyMedium,
-                                                                          ),
-                                                                        ),
-                                                                    ],
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            ),
-                                                            if (responsiveVisibility(
-                                                              context: context,
-                                                              phone: false,
-                                                              tablet: false,
-                                                            ))
-                                                              Expanded(
-                                                                flex: 2,
-                                                                child: Text(
-                                                                  'user@domain.com',
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium,
-                                                                ),
-                                                              ),
-                                                            if (responsiveVisibility(
-                                                              context: context,
-                                                              phone: false,
-                                                            ))
-                                                              Expanded(
-                                                                child: Text(
-                                                                  dateTimeFormat(
-                                                                      'relative',
-                                                                      getCurrentTimestamp),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium,
-                                                                ),
-                                                              ),
-                                                            if (responsiveVisibility(
-                                                              context: context,
-                                                              phone: false,
-                                                              tablet: false,
-                                                            ))
-                                                              Expanded(
-                                                                child: Text(
-                                                                  dateTimeFormat(
-                                                                      'yMMMd',
-                                                                      getCurrentTimestamp),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium,
-                                                                ),
-                                                              ),
-                                                            Expanded(
-                                                              child: Column(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                crossAxisAlignment:
-                                                                    CrossAxisAlignment
-                                                                        .end,
-                                                                children: [
-                                                                  Text(
-                                                                    'Status',
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Poppins',
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).primary,
-                                                                        ),
-                                                                  ),
-                                                                  if (responsiveVisibility(
-                                                                    context:
-                                                                        context,
-                                                                    tablet:
-                                                                        false,
-                                                                    tabletLandscape:
-                                                                        false,
-                                                                    desktop:
-                                                                        false,
-                                                                  ))
-                                                                    Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          2.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                      child:
-                                                                          Text(
-                                                                        'Whether its over or not',
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium,
-                                                                      ),
-                                                                    ),
-                                                                ],
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 0.0, 0.0, 2.0),
-                                                child: Container(
-                                                  width: double.infinity,
-                                                  decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryBackground,
-                                                    boxShadow: [
-                                                      BoxShadow(
-                                                        blurRadius: 0.0,
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .lineColor,
-                                                        offset:
-                                                            Offset(0.0, 1.0),
-                                                      )
-                                                    ],
-                                                  ),
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 2.0),
-                                                    child: Container(
-                                                      width: double.infinity,
-                                                      decoration: BoxDecoration(
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .secondaryBackground,
-                                                        boxShadow: [
-                                                          BoxShadow(
-                                                            blurRadius: 0.0,
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .lineColor,
-                                                            offset: Offset(
-                                                                0.0, 1.0),
-                                                          )
-                                                        ],
-                                                      ),
-                                                      child: Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    12.0,
-                                                                    12.0,
-                                                                    12.0,
-                                                                    12.0),
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          children: [
-                                                            Expanded(
-                                                              flex: 2,
-                                                              child: Row(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                children: [
-                                                                  Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            12.0,
-                                                                            0.0),
-                                                                    child:
-                                                                        ClipRRect(
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              12.0),
-                                                                      child:
-                                                                          CachedNetworkImage(
-                                                                        imageUrl:
-                                                                            'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8dXNlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=900&q=60',
-                                                                        width:
-                                                                            40.0,
-                                                                        height:
-                                                                            40.0,
-                                                                        fit: BoxFit
-                                                                            .cover,
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                  Column(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    crossAxisAlignment:
-                                                                        CrossAxisAlignment
-                                                                            .start,
-                                                                    children: [
-                                                                      AutoSizeText(
-                                                                        valueOrDefault<
-                                                                            String>(
-                                                                          random_data.randomName(
-                                                                              true,
-                                                                              false),
-                                                                          'Course Code/Name',
-                                                                        ).maybeHandleOverflow(
-                                                                          maxChars:
-                                                                              32,
-                                                                          replacement:
-                                                                              '…',
-                                                                        ),
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .titleMedium,
-                                                                      ),
-                                                                      if (responsiveVisibility(
-                                                                        context:
-                                                                            context,
-                                                                        tabletLandscape:
-                                                                            false,
-                                                                        desktop:
-                                                                            false,
-                                                                      ))
-                                                                        Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0.0,
-                                                                              2.0,
-                                                                              0.0,
-                                                                              0.0),
-                                                                          child:
-                                                                              Text(
-                                                                            'Timing',
-                                                                            style:
-                                                                                FlutterFlowTheme.of(context).bodyMedium,
-                                                                          ),
-                                                                        ),
-                                                                    ],
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            ),
-                                                            if (responsiveVisibility(
-                                                              context: context,
-                                                              phone: false,
-                                                              tablet: false,
-                                                            ))
-                                                              Expanded(
-                                                                flex: 2,
-                                                                child: Text(
-                                                                  'user@domain.com',
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium,
-                                                                ),
-                                                              ),
-                                                            if (responsiveVisibility(
-                                                              context: context,
-                                                              phone: false,
-                                                            ))
-                                                              Expanded(
-                                                                child: Text(
-                                                                  dateTimeFormat(
-                                                                      'relative',
-                                                                      getCurrentTimestamp),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium,
-                                                                ),
-                                                              ),
-                                                            if (responsiveVisibility(
-                                                              context: context,
-                                                              phone: false,
-                                                              tablet: false,
-                                                            ))
-                                                              Expanded(
-                                                                child: Text(
-                                                                  dateTimeFormat(
-                                                                      'yMMMd',
-                                                                      getCurrentTimestamp),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium,
-                                                                ),
-                                                              ),
-                                                            Expanded(
-                                                              child: Column(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                crossAxisAlignment:
-                                                                    CrossAxisAlignment
-                                                                        .end,
-                                                                children: [
-                                                                  Text(
-                                                                    'Status',
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Poppins',
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).primary,
-                                                                        ),
-                                                                  ),
-                                                                  if (responsiveVisibility(
-                                                                    context:
-                                                                        context,
-                                                                    tablet:
-                                                                        false,
-                                                                    tabletLandscape:
-                                                                        false,
-                                                                    desktop:
-                                                                        false,
-                                                                  ))
-                                                                    Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          2.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                      child:
-                                                                          Text(
-                                                                        'Whether its over or not',
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium,
-                                                                      ),
-                                                                    ),
-                                                                ],
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 0.0, 0.0, 2.0),
-                                                child: Container(
-                                                  width: double.infinity,
-                                                  decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryBackground,
-                                                    boxShadow: [
-                                                      BoxShadow(
-                                                        blurRadius: 0.0,
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .lineColor,
-                                                        offset:
-                                                            Offset(0.0, 1.0),
-                                                      )
-                                                    ],
-                                                  ),
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 2.0),
-                                                    child: Container(
-                                                      width: double.infinity,
-                                                      decoration: BoxDecoration(
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .secondaryBackground,
-                                                        boxShadow: [
-                                                          BoxShadow(
-                                                            blurRadius: 0.0,
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .lineColor,
-                                                            offset: Offset(
-                                                                0.0, 1.0),
-                                                          )
-                                                        ],
-                                                      ),
-                                                      child: Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    12.0,
-                                                                    12.0,
-                                                                    12.0,
-                                                                    12.0),
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          children: [
-                                                            Expanded(
-                                                              flex: 2,
-                                                              child: Row(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                children: [
-                                                                  Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            12.0,
-                                                                            0.0),
-                                                                    child:
-                                                                        ClipRRect(
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              12.0),
-                                                                      child:
-                                                                          CachedNetworkImage(
-                                                                        imageUrl:
-                                                                            'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8dXNlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=900&q=60',
-                                                                        width:
-                                                                            40.0,
-                                                                        height:
-                                                                            40.0,
-                                                                        fit: BoxFit
-                                                                            .cover,
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                  Column(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    crossAxisAlignment:
-                                                                        CrossAxisAlignment
-                                                                            .start,
-                                                                    children: [
-                                                                      AutoSizeText(
-                                                                        valueOrDefault<
-                                                                            String>(
-                                                                          random_data.randomName(
-                                                                              true,
-                                                                              false),
-                                                                          'Course Code/Name',
-                                                                        ).maybeHandleOverflow(
-                                                                          maxChars:
-                                                                              32,
-                                                                          replacement:
-                                                                              '…',
-                                                                        ),
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .titleMedium,
-                                                                      ),
-                                                                      if (responsiveVisibility(
-                                                                        context:
-                                                                            context,
-                                                                        tabletLandscape:
-                                                                            false,
-                                                                        desktop:
-                                                                            false,
-                                                                      ))
-                                                                        Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0.0,
-                                                                              2.0,
-                                                                              0.0,
-                                                                              0.0),
-                                                                          child:
-                                                                              Text(
-                                                                            'Timing',
-                                                                            style:
-                                                                                FlutterFlowTheme.of(context).bodyMedium,
-                                                                          ),
-                                                                        ),
-                                                                    ],
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            ),
-                                                            if (responsiveVisibility(
-                                                              context: context,
-                                                              phone: false,
-                                                              tablet: false,
-                                                            ))
-                                                              Expanded(
-                                                                flex: 2,
-                                                                child: Text(
-                                                                  'user@domain.com',
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium,
-                                                                ),
-                                                              ),
-                                                            if (responsiveVisibility(
-                                                              context: context,
-                                                              phone: false,
-                                                            ))
-                                                              Expanded(
-                                                                child: Text(
-                                                                  dateTimeFormat(
-                                                                      'relative',
-                                                                      getCurrentTimestamp),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium,
-                                                                ),
-                                                              ),
-                                                            if (responsiveVisibility(
-                                                              context: context,
-                                                              phone: false,
-                                                              tablet: false,
-                                                            ))
-                                                              Expanded(
-                                                                child: Text(
-                                                                  dateTimeFormat(
-                                                                      'yMMMd',
-                                                                      getCurrentTimestamp),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium,
-                                                                ),
-                                                              ),
-                                                            Expanded(
-                                                              child: Column(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                crossAxisAlignment:
-                                                                    CrossAxisAlignment
-                                                                        .end,
-                                                                children: [
-                                                                  Text(
-                                                                    'Status',
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Poppins',
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).primary,
-                                                                        ),
-                                                                  ),
-                                                                  if (responsiveVisibility(
-                                                                    context:
-                                                                        context,
-                                                                    tablet:
-                                                                        false,
-                                                                    tabletLandscape:
-                                                                        false,
-                                                                    desktop:
-                                                                        false,
-                                                                  ))
-                                                                    Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          2.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                      child:
-                                                                          Text(
-                                                                        'Whether its over or not',
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium,
-                                                                      ),
-                                                                    ),
-                                                                ],
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 0.0, 0.0, 2.0),
-                                                child: Container(
-                                                  width: double.infinity,
-                                                  decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryBackground,
-                                                    boxShadow: [
-                                                      BoxShadow(
-                                                        blurRadius: 0.0,
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .lineColor,
-                                                        offset:
-                                                            Offset(0.0, 1.0),
-                                                      )
-                                                    ],
-                                                  ),
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 2.0),
-                                                    child: Container(
-                                                      width: double.infinity,
-                                                      decoration: BoxDecoration(
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .secondaryBackground,
-                                                        boxShadow: [
-                                                          BoxShadow(
-                                                            blurRadius: 0.0,
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .lineColor,
-                                                            offset: Offset(
-                                                                0.0, 1.0),
-                                                          )
-                                                        ],
-                                                      ),
-                                                      child: Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    12.0,
-                                                                    12.0,
-                                                                    12.0,
-                                                                    12.0),
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          children: [
-                                                            Expanded(
-                                                              flex: 2,
-                                                              child: Row(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                children: [
-                                                                  Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            12.0,
-                                                                            0.0),
-                                                                    child:
-                                                                        ClipRRect(
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              12.0),
-                                                                      child:
-                                                                          CachedNetworkImage(
-                                                                        imageUrl:
-                                                                            'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8dXNlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=900&q=60',
-                                                                        width:
-                                                                            40.0,
-                                                                        height:
-                                                                            40.0,
-                                                                        fit: BoxFit
-                                                                            .cover,
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                  Column(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    crossAxisAlignment:
-                                                                        CrossAxisAlignment
-                                                                            .start,
-                                                                    children: [
-                                                                      AutoSizeText(
-                                                                        valueOrDefault<
-                                                                            String>(
-                                                                          random_data.randomName(
-                                                                              true,
-                                                                              false),
-                                                                          'Course Code/Name',
-                                                                        ).maybeHandleOverflow(
-                                                                          maxChars:
-                                                                              32,
-                                                                          replacement:
-                                                                              '…',
-                                                                        ),
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .titleMedium,
-                                                                      ),
-                                                                      if (responsiveVisibility(
-                                                                        context:
-                                                                            context,
-                                                                        tabletLandscape:
-                                                                            false,
-                                                                        desktop:
-                                                                            false,
-                                                                      ))
-                                                                        Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0.0,
-                                                                              2.0,
-                                                                              0.0,
-                                                                              0.0),
-                                                                          child:
-                                                                              Text(
-                                                                            'Timing',
-                                                                            style:
-                                                                                FlutterFlowTheme.of(context).bodyMedium,
-                                                                          ),
-                                                                        ),
-                                                                    ],
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            ),
-                                                            if (responsiveVisibility(
-                                                              context: context,
-                                                              phone: false,
-                                                              tablet: false,
-                                                            ))
-                                                              Expanded(
-                                                                flex: 2,
-                                                                child: Text(
-                                                                  'user@domain.com',
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium,
-                                                                ),
-                                                              ),
-                                                            if (responsiveVisibility(
-                                                              context: context,
-                                                              phone: false,
-                                                            ))
-                                                              Expanded(
-                                                                child: Text(
-                                                                  dateTimeFormat(
-                                                                      'relative',
-                                                                      getCurrentTimestamp),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium,
-                                                                ),
-                                                              ),
-                                                            if (responsiveVisibility(
-                                                              context: context,
-                                                              phone: false,
-                                                              tablet: false,
-                                                            ))
-                                                              Expanded(
-                                                                child: Text(
-                                                                  dateTimeFormat(
-                                                                      'yMMMd',
-                                                                      getCurrentTimestamp),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium,
-                                                                ),
-                                                              ),
-                                                            Expanded(
-                                                              child: Column(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                crossAxisAlignment:
-                                                                    CrossAxisAlignment
-                                                                        .end,
-                                                                children: [
-                                                                  Text(
-                                                                    'Status',
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Poppins',
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).primary,
-                                                                        ),
-                                                                  ),
-                                                                  if (responsiveVisibility(
-                                                                    context:
-                                                                        context,
-                                                                    tablet:
-                                                                        false,
-                                                                    tabletLandscape:
-                                                                        false,
-                                                                    desktop:
-                                                                        false,
-                                                                  ))
-                                                                    Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          2.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                      child:
-                                                                          Text(
-                                                                        'Whether its over or not',
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium,
-                                                                      ),
-                                                                    ),
-                                                                ],
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 0.0, 0.0, 2.0),
-                                                child: Container(
-                                                  width: double.infinity,
-                                                  decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryBackground,
-                                                    boxShadow: [
-                                                      BoxShadow(
-                                                        blurRadius: 0.0,
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .lineColor,
-                                                        offset:
-                                                            Offset(0.0, 1.0),
-                                                      )
-                                                    ],
-                                                  ),
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
                                                             .fromSTEB(
                                                                 12.0,
                                                                 12.0,
@@ -1875,235 +2173,49 @@ class _TimetableWidgetState extends State<TimetableWidget>
                                                                     CrossAxisAlignment
                                                                         .start,
                                                                 children: [
-                                                                  AutoSizeText(
-                                                                    valueOrDefault<
-                                                                        String>(
-                                                                      random_data.randomName(
-                                                                          true,
-                                                                          false),
-                                                                      'Course Code/Name',
-                                                                    ).maybeHandleOverflow(
-                                                                      maxChars:
-                                                                          32,
-                                                                      replacement:
-                                                                          '…',
-                                                                    ),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .titleMedium,
-                                                                  ),
-                                                                  if (responsiveVisibility(
-                                                                    context:
-                                                                        context,
-                                                                    tabletLandscape:
-                                                                        false,
-                                                                    desktop:
-                                                                        false,
-                                                                  ))
-                                                                    Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          2.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                      child:
-                                                                          Text(
-                                                                        'Timing',
+                                                                  FutureBuilder<
+                                                                      ApiCallResponse>(
+                                                                    future: TimetableGroup
+                                                                        .mondayCall
+                                                                        .call(),
+                                                                    builder:
+                                                                        (context,
+                                                                            snapshot) {
+                                                                      // Customize what your widget looks like when it's loading.
+                                                                      if (!snapshot
+                                                                          .hasData) {
+                                                                        return Center(
+                                                                          child:
+                                                                              SizedBox(
+                                                                            width:
+                                                                                50.0,
+                                                                            height:
+                                                                                50.0,
+                                                                            child:
+                                                                                CircularProgressIndicator(
+                                                                              color: Color(0xC31566C6),
+                                                                            ),
+                                                                          ),
+                                                                        );
+                                                                      }
+                                                                      final textMondayResponse =
+                                                                          snapshot
+                                                                              .data!;
+                                                                      return AutoSizeText(
+                                                                        getJsonField(
+                                                                          textMondayResponse
+                                                                              .jsonBody,
+                                                                          r'''$[0].8.subject''',
+                                                                        )
+                                                                            .toString()
+                                                                            .maybeHandleOverflow(
+                                                                              maxChars: 32,
+                                                                              replacement: '…',
+                                                                            ),
                                                                         style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium,
-                                                                      ),
-                                                                    ),
-                                                                ],
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                        if (responsiveVisibility(
-                                                          context: context,
-                                                          phone: false,
-                                                          tablet: false,
-                                                        ))
-                                                          Expanded(
-                                                            flex: 2,
-                                                            child: Text(
-                                                              'user@domain.com',
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium,
-                                                            ),
-                                                          ),
-                                                        if (responsiveVisibility(
-                                                          context: context,
-                                                          phone: false,
-                                                        ))
-                                                          Expanded(
-                                                            child: Text(
-                                                              dateTimeFormat(
-                                                                  'relative',
-                                                                  getCurrentTimestamp),
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium,
-                                                            ),
-                                                          ),
-                                                        if (responsiveVisibility(
-                                                          context: context,
-                                                          phone: false,
-                                                          tablet: false,
-                                                        ))
-                                                          Expanded(
-                                                            child: Text(
-                                                              dateTimeFormat(
-                                                                  'yMMMd',
-                                                                  getCurrentTimestamp),
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium,
-                                                            ),
-                                                          ),
-                                                        Expanded(
-                                                          child: Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .end,
-                                                            children: [
-                                                              Text(
-                                                                'Status',
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primary,
-                                                                    ),
-                                                              ),
-                                                              if (responsiveVisibility(
-                                                                context:
-                                                                    context,
-                                                                tablet: false,
-                                                                tabletLandscape:
-                                                                    false,
-                                                                desktop: false,
-                                                              ))
-                                                                Padding(
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          2.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                  child: Text(
-                                                                    'Whether its over or not',
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium,
-                                                                  ),
-                                                                ),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 0.0, 0.0, 2.0),
-                                                child: Container(
-                                                  width: double.infinity,
-                                                  decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryBackground,
-                                                    boxShadow: [
-                                                      BoxShadow(
-                                                        blurRadius: 0.0,
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .lineColor,
-                                                        offset:
-                                                            Offset(0.0, 1.0),
-                                                      )
-                                                    ],
-                                                  ),
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                12.0,
-                                                                12.0,
-                                                                12.0,
-                                                                12.0),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Expanded(
-                                                          flex: 2,
-                                                          child: Row(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            children: [
-                                                              Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            12.0,
-                                                                            0.0),
-                                                                child:
-                                                                    ClipRRect(
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              12.0),
-                                                                  child:
-                                                                      CachedNetworkImage(
-                                                                    imageUrl:
-                                                                        'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8dXNlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=900&q=60',
-                                                                    width: 40.0,
-                                                                    height:
-                                                                        40.0,
-                                                                    fit: BoxFit
-                                                                        .cover,
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                              Column(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                crossAxisAlignment:
-                                                                    CrossAxisAlignment
-                                                                        .start,
-                                                                children: [
-                                                                  AutoSizeText(
-                                                                    valueOrDefault<
-                                                                        String>(
-                                                                      random_data.randomName(
-                                                                          true,
-                                                                          false),
-                                                                      'Course Code/Name',
-                                                                    ).maybeHandleOverflow(
-                                                                      maxChars:
-                                                                          32,
-                                                                      replacement:
-                                                                          '…',
-                                                                    ),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .titleMedium,
+                                                                            .titleMedium,
+                                                                      );
+                                                                    },
                                                                   ),
                                                                   if (responsiveVisibility(
                                                                     context:
