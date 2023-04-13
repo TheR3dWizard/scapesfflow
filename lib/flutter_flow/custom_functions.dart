@@ -9,7 +9,7 @@ import 'lat_lng.dart';
 import 'place.dart';
 
 int? noofclasses() {
-  return 6;
+  return 8;
 }
 
 String? dailyTimetable(
