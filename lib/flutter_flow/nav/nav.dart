@@ -29,25 +29,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, _) => LoginWidget(),
+      errorBuilder: (context, _) => NavBarPage(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => LoginWidget(),
+          builder: (context, _) => NavBarPage(),
           routes: [
-            FFRoute(
-              name: 'Login',
-              path: 'login',
-              builder: (context, params) => LoginWidget(),
-            ),
-            FFRoute(
-              name: 'Homepage',
-              path: 'homepage',
-              builder: (context, params) => params.isEmpty
-                  ? NavBarPage(initialPage: 'Homepage')
-                  : HomepageWidget(),
-            ),
             FFRoute(
               name: 'TwoWeek',
               path: 'twoWeek',
@@ -61,11 +49,28 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => TestingWidget(),
             ),
             FFRoute(
+              name: 'Homepage',
+              path: 'homepage',
+              builder: (context, params) => params.isEmpty
+                  ? NavBarPage(initialPage: 'Homepage')
+                  : HomepageWidget(),
+            ),
+            FFRoute(
               name: 'Timetable',
               path: 'timetable',
+              builder: (context, params) => TimetableWidget(),
+            ),
+            FFRoute(
+              name: 'TimetableCopy',
+              path: 'timetableCopy',
               builder: (context, params) => params.isEmpty
-                  ? NavBarPage(initialPage: 'Timetable')
-                  : TimetableWidget(),
+                  ? NavBarPage(initialPage: 'TimetableCopy')
+                  : TimetableCopyWidget(),
+            ),
+            FFRoute(
+              name: 'Login',
+              path: 'login',
+              builder: (context, params) => LoginWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

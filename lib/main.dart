@@ -6,6 +6,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 import 'flutter_flow/internationalization.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'flutter_flow/nav/nav.dart';
@@ -89,7 +90,7 @@ class NavBarPage extends StatefulWidget {
 
 /// This is the private State class that goes with NavBarPage.
 class _NavBarPageState extends State<NavBarPage> {
-  String _currentPageName = 'Homepage';
+  String _currentPageName = 'TwoWeek';
   late Widget? _currentPage;
 
   @override
@@ -102,9 +103,9 @@ class _NavBarPageState extends State<NavBarPage> {
   @override
   Widget build(BuildContext context) {
     final tabs = {
-      'Homepage': HomepageWidget(),
       'TwoWeek': TwoWeekWidget(),
-      'Timetable': TimetableWidget(),
+      'Homepage': HomepageWidget(),
+      'TimetableCopy': TimetableCopyWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
     return Scaffold(
@@ -129,18 +130,18 @@ class _NavBarPageState extends State<NavBarPage> {
         tabs: [
           GButton(
             icon: Icons.home_outlined,
-            text: 'Home',
-            iconSize: 24.0,
-          ),
-          GButton(
-            icon: Icons.home_outlined,
             text: 'Sem',
             iconSize: 24.0,
           ),
           GButton(
+            icon: Icons.home_outlined,
+            text: 'Home',
+            iconSize: 24.0,
+          ),
+          GButton(
             icon: currentIndex == 2
-                ? Icons.dashboard_rounded
-                : Icons.dashboard_outlined,
+                ? FontAwesomeIcons.alignJustify
+                : FontAwesomeIcons.alignJustify,
             text: 'Timetable',
             iconSize: 24.0,
           )

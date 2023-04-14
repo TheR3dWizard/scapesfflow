@@ -480,8 +480,7 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                     .secondaryBackground,
                                 borderRadius: BorderRadius.circular(12.0),
                                 border: Border.all(
-                                  color: FlutterFlowTheme.of(context)
-                                      .primaryBackground,
+                                  color: Color(0xFFE0E3E7),
                                   width: 2.0,
                                 ),
                               ),

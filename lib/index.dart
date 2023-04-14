@@ -1,6 +1,8 @@
 // Export pages
-export '/login/login_widget.dart' show LoginWidget;
-export '/homepage/homepage_widget.dart' show HomepageWidget;
-export '/two_week/two_week_widget.dart' show TwoWeekWidget;
-export '/testing/testing_widget.dart' show TestingWidget;
-export '/timetable/timetable_widget.dart' show TimetableWidget;
+export '/pages/two_week/two_week_widget.dart' show TwoWeekWidget;
+export '/pages/testing/testing_widget.dart' show TestingWidget;
+export '/pages/homepage/homepage_widget.dart' show HomepageWidget;
+export '/pages/timetable/timetable_widget.dart' show TimetableWidget;
+export '/pages/timetable_copy/timetable_copy_widget.dart'
+    show TimetableCopyWidget;
+export '/pages/login/login_widget.dart' show LoginWidget;
