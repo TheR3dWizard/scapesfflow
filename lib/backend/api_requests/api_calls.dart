@@ -9,6 +9,8 @@ export 'api_manager.dart' show ApiCallResponse;
 
 const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 
+String day = DateFormat('EEEE').format(DateTime.now()).toLowerCase();
+
 /// Start Timetable Group Code
 
 class TimetableGroup {
@@ -17,6 +19,7 @@ class TimetableGroup {
   static Map<String, String> headers = {};
   static MondayCall mondayCall = MondayCall();
   static TuesdayCall tuesdayCall = TuesdayCall();
+  static TodayCall todayCall = TodayCall();
 }
 
 class MondayCall {
@@ -42,6 +45,26 @@ class TuesdayCall {
     return ApiManager.instance.makeApiCall(
       callName: 'Tuesday',
       apiUrl: '${TimetableGroup.baseUrl}/tuesday',
+      callType: ApiCallType.GET,
+      headers: {
+        ...TimetableGroup.headers,
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+}
+
+String todayquery = '${TimetableGroup.baseUrl}/$day';
+
+class TodayCall {
+  Future<ApiCallResponse> call() {
+    return ApiManager.instance.makeApiCall(
+      callName: 'Today',
+      apiUrl: todayquery,
       callType: ApiCallType.GET,
       headers: {
         ...TimetableGroup.headers,

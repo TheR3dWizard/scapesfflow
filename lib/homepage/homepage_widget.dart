@@ -275,16 +275,27 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
                                           children: [
-                                            Text(
-                                              valueOrDefault<String>(
-                                                functions.dailyTimetable(
-                                                    null, 'Monday'),
-                                                'Physics',
-                                              ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleMedium,
-                                            ),
+                                            FutureBuilder<String>(
+                                                future:
+                                                    functions.dailyTimetable(1),
+                                                builder: (BuildContext context,
+                                                    AsyncSnapshot<String>
+                                                        snapshot) {
+                                                  if (snapshot
+                                                          .connectionState ==
+                                                      ConnectionState.waiting) {
+                                                    return CircularProgressIndicator();
+                                                  }
+                                                  if (snapshot.hasError) {
+                                                    return Text(
+                                                        'Error: ${snapshot.error}');
+                                                  }
+                                                  return Text(
+                                                    snapshot.data ?? '',
+                                                    style: TextStyle(
+                                                        fontSize: 24.0),
+                                                  );
+                                                }),
                                             Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 4.0, 0.0, 0.0),
@@ -356,16 +367,27 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
                                           children: [
-                                            Text(
-                                              valueOrDefault<String>(
-                                                functions.dailyTimetable(
-                                                    null, 'Monday'),
-                                                'Physics',
-                                              ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleMedium,
-                                            ),
+                                            FutureBuilder<String>(
+                                                future:
+                                                    functions.dailyTimetable(2),
+                                                builder: (BuildContext context,
+                                                    AsyncSnapshot<String>
+                                                        snapshot) {
+                                                  if (snapshot
+                                                          .connectionState ==
+                                                      ConnectionState.waiting) {
+                                                    return CircularProgressIndicator();
+                                                  }
+                                                  if (snapshot.hasError) {
+                                                    return Text(
+                                                        'Error: ${snapshot.error}');
+                                                  }
+                                                  return Text(
+                                                    snapshot.data ?? '',
+                                                    style: TextStyle(
+                                                        fontSize: 24.0),
+                                                  );
+                                                }),
                                             Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 4.0, 0.0, 0.0),
@@ -437,16 +459,27 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
                                           children: [
-                                            Text(
-                                              valueOrDefault<String>(
-                                                functions.dailyTimetable(
-                                                    null, 'Monday'),
-                                                'Physics',
-                                              ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleMedium,
-                                            ),
+                                            FutureBuilder<String>(
+                                                future:
+                                                    functions.dailyTimetable(3),
+                                                builder: (BuildContext context,
+                                                    AsyncSnapshot<String>
+                                                        snapshot) {
+                                                  if (snapshot
+                                                          .connectionState ==
+                                                      ConnectionState.waiting) {
+                                                    return CircularProgressIndicator();
+                                                  }
+                                                  if (snapshot.hasError) {
+                                                    return Text(
+                                                        'Error: ${snapshot.error}');
+                                                  }
+                                                  return Text(
+                                                    snapshot.data ?? '',
+                                                    style: TextStyle(
+                                                        fontSize: 24.0),
+                                                  );
+                                                }),
                                             Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 4.0, 0.0, 0.0),
@@ -519,16 +552,27 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
                                           children: [
-                                            Text(
-                                              valueOrDefault<String>(
-                                                functions.dailyTimetable(
-                                                    null, 'Monday'),
-                                                'Physics',
-                                              ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleMedium,
-                                            ),
+                                            FutureBuilder<String>(
+                                                future:
+                                                    functions.dailyTimetable(4),
+                                                builder: (BuildContext context,
+                                                    AsyncSnapshot<String>
+                                                        snapshot) {
+                                                  if (snapshot
+                                                          .connectionState ==
+                                                      ConnectionState.waiting) {
+                                                    return CircularProgressIndicator();
+                                                  }
+                                                  if (snapshot.hasError) {
+                                                    return Text(
+                                                        'Error: ${snapshot.error}');
+                                                  }
+                                                  return Text(
+                                                    snapshot.data ?? '',
+                                                    style: TextStyle(
+                                                        fontSize: 24.0),
+                                                  );
+                                                }),
                                             Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 4.0, 0.0, 0.0),
@@ -600,16 +644,27 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
                                           children: [
-                                            Text(
-                                              valueOrDefault<String>(
-                                                functions.dailyTimetable(
-                                                    null, 'Monday'),
-                                                'Physics',
-                                              ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleMedium,
-                                            ),
+                                            FutureBuilder<String>(
+                                                future:
+                                                    functions.dailyTimetable(5),
+                                                builder: (BuildContext context,
+                                                    AsyncSnapshot<String>
+                                                        snapshot) {
+                                                  if (snapshot
+                                                          .connectionState ==
+                                                      ConnectionState.waiting) {
+                                                    return CircularProgressIndicator();
+                                                  }
+                                                  if (snapshot.hasError) {
+                                                    return Text(
+                                                        'Error: ${snapshot.error}');
+                                                  }
+                                                  return Text(
+                                                    snapshot.data ?? '',
+                                                    style: TextStyle(
+                                                        fontSize: 24.0),
+                                                  );
+                                                }),
                                             Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 4.0, 0.0, 0.0),

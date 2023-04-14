@@ -364,16 +364,27 @@ class _TwoWeekWidgetState extends State<TwoWeekWidget>
                                               ),
                                             ).animateOnPageLoad(animationsMap[
                                                 'progressBarOnPageLoadAnimation1']!),
-                                            Text(
-                                              valueOrDefault<String>(
-                                                functions.dailyTimetable(
-                                                    null, 'Monday'),
-                                                'Physics',
-                                              ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleMedium,
-                                            ),
+                                            FutureBuilder<String>(
+                                                future:
+                                                    functions.dailyTimetable(1),
+                                                builder: (BuildContext context,
+                                                    AsyncSnapshot<String>
+                                                        snapshot) {
+                                                  if (snapshot
+                                                          .connectionState ==
+                                                      ConnectionState.waiting) {
+                                                    return CircularProgressIndicator();
+                                                  }
+                                                  if (snapshot.hasError) {
+                                                    return Text(
+                                                        'Error: ${snapshot.error}');
+                                                  }
+                                                  return Text(
+                                                    snapshot.data ?? '',
+                                                    style: TextStyle(
+                                                        fontSize: 24.0),
+                                                  );
+                                                }),
                                             Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 4.0, 0.0, 0.0),
@@ -470,16 +481,27 @@ class _TwoWeekWidgetState extends State<TwoWeekWidget>
                                               ),
                                             ).animateOnPageLoad(animationsMap[
                                                 'progressBarOnPageLoadAnimation2']!),
-                                            Text(
-                                              valueOrDefault<String>(
-                                                functions.dailyTimetable(
-                                                    null, 'Monday'),
-                                                'Physics',
-                                              ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleMedium,
-                                            ),
+                                            FutureBuilder<String>(
+                                                future:
+                                                    functions.dailyTimetable(1),
+                                                builder: (BuildContext context,
+                                                    AsyncSnapshot<String>
+                                                        snapshot) {
+                                                  if (snapshot
+                                                          .connectionState ==
+                                                      ConnectionState.waiting) {
+                                                    return CircularProgressIndicator();
+                                                  }
+                                                  if (snapshot.hasError) {
+                                                    return Text(
+                                                        'Error: ${snapshot.error}');
+                                                  }
+                                                  return Text(
+                                                    snapshot.data ?? '',
+                                                    style: TextStyle(
+                                                        fontSize: 24.0),
+                                                  );
+                                                }),
                                             Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 4.0, 0.0, 0.0),
@@ -576,16 +598,27 @@ class _TwoWeekWidgetState extends State<TwoWeekWidget>
                                               ),
                                             ).animateOnPageLoad(animationsMap[
                                                 'progressBarOnPageLoadAnimation3']!),
-                                            Text(
-                                              valueOrDefault<String>(
-                                                functions.dailyTimetable(
-                                                    null, 'Monday'),
-                                                'Physics',
-                                              ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleMedium,
-                                            ),
+                                            FutureBuilder<String>(
+                                                future:
+                                                    functions.dailyTimetable(1),
+                                                builder: (BuildContext context,
+                                                    AsyncSnapshot<String>
+                                                        snapshot) {
+                                                  if (snapshot
+                                                          .connectionState ==
+                                                      ConnectionState.waiting) {
+                                                    return CircularProgressIndicator();
+                                                  }
+                                                  if (snapshot.hasError) {
+                                                    return Text(
+                                                        'Error: ${snapshot.error}');
+                                                  }
+                                                  return Text(
+                                                    snapshot.data ?? '',
+                                                    style: TextStyle(
+                                                        fontSize: 24.0),
+                                                  );
+                                                }),
                                             Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 4.0, 0.0, 0.0),
@@ -682,16 +715,27 @@ class _TwoWeekWidgetState extends State<TwoWeekWidget>
                                               ),
                                             ).animateOnPageLoad(animationsMap[
                                                 'progressBarOnPageLoadAnimation4']!),
-                                            Text(
-                                              valueOrDefault<String>(
-                                                functions.dailyTimetable(
-                                                    null, 'Monday'),
-                                                'Physics',
-                                              ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleMedium,
-                                            ),
+                                            FutureBuilder<String>(
+                                                future:
+                                                    functions.dailyTimetable(1),
+                                                builder: (BuildContext context,
+                                                    AsyncSnapshot<String>
+                                                        snapshot) {
+                                                  if (snapshot
+                                                          .connectionState ==
+                                                      ConnectionState.waiting) {
+                                                    return CircularProgressIndicator();
+                                                  }
+                                                  if (snapshot.hasError) {
+                                                    return Text(
+                                                        'Error: ${snapshot.error}');
+                                                  }
+                                                  return Text(
+                                                    snapshot.data ?? '',
+                                                    style: TextStyle(
+                                                        fontSize: 24.0),
+                                                  );
+                                                }),
                                             Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 4.0, 0.0, 0.0),
@@ -788,16 +832,27 @@ class _TwoWeekWidgetState extends State<TwoWeekWidget>
                                               ),
                                             ).animateOnPageLoad(animationsMap[
                                                 'progressBarOnPageLoadAnimation5']!),
-                                            Text(
-                                              valueOrDefault<String>(
-                                                functions.dailyTimetable(
-                                                    null, 'Monday'),
-                                                'Physics',
-                                              ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleMedium,
-                                            ),
+                                            FutureBuilder<String>(
+                                                future:
+                                                    functions.dailyTimetable(1),
+                                                builder: (BuildContext context,
+                                                    AsyncSnapshot<String>
+                                                        snapshot) {
+                                                  if (snapshot
+                                                          .connectionState ==
+                                                      ConnectionState.waiting) {
+                                                    return CircularProgressIndicator();
+                                                  }
+                                                  if (snapshot.hasError) {
+                                                    return Text(
+                                                        'Error: ${snapshot.error}');
+                                                  }
+                                                  return Text(
+                                                    snapshot.data ?? '',
+                                                    style: TextStyle(
+                                                        fontSize: 24.0),
+                                                  );
+                                                }),
                                             Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 4.0, 0.0, 0.0),
