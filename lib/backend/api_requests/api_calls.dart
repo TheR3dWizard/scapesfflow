@@ -13,7 +13,7 @@ const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 
 class TimetableGroup {
   static String baseUrl =
-      'https://psg-scapes-backend.onrender.com/api/v1/c22z2/timetable';
+      'https://psg-scapes-backend.onrender.com/api/c22z2/timetable';
   static Map<String, String> headers = {};
   static MondayCall mondayCall = MondayCall();
   static TuesdayCall tuesdayCall = TuesdayCall();
@@ -137,6 +137,91 @@ class UserDataGroup {
 }
 
 /// End UserData Group Code
+
+/// Start Temp API Group Code
+
+class TempAPIGroup {
+  static String baseUrl = 'https://psgscapes.onrender.com/api';
+  static Map<String, String> headers = {};
+}
+
+/// End Temp API Group Code
+
+/// Start AttendanceData Group Code
+
+class AttendanceDataGroup {
+  static String baseUrl =
+      'https://psg-scapes-backend.onrender.com/api/attendance/';
+  static Map<String, String> headers = {};
+  static StudAttACCall studAttACCall = StudAttACCall();
+  static StudAttSCCall studAttSCCall = StudAttSCCall();
+  static CourseCall courseCall = CourseCall();
+}
+
+class StudAttACCall {
+  Future<ApiCallResponse> call() {
+    return ApiManager.instance.makeApiCall(
+      callName: 'StudAttAC',
+      apiUrl: '${AttendanceDataGroup.baseUrl}/student/22Z209',
+      callType: ApiCallType.GET,
+      headers: {
+        ...AttendanceDataGroup.headers,
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+
+  dynamic present(dynamic response) => getJsonField(
+        response,
+        r'''$[0].totalPresent''',
+      );
+  dynamic noClasses(dynamic response) => getJsonField(
+        response,
+        r'''$[0].totalClasses''',
+      );
+}
+
+class StudAttSCCall {
+  Future<ApiCallResponse> call() {
+    return ApiManager.instance.makeApiCall(
+      callName: 'StudAttSC',
+      apiUrl: '${AttendanceDataGroup.baseUrl}/19Z101/22Z209',
+      callType: ApiCallType.GET,
+      headers: {
+        ...AttendanceDataGroup.headers,
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+}
+
+class CourseCall {
+  Future<ApiCallResponse> call() {
+    return ApiManager.instance.makeApiCall(
+      callName: 'Course',
+      apiUrl: '${AttendanceDataGroup.baseUrl}/19Z101',
+      callType: ApiCallType.GET,
+      headers: {
+        ...AttendanceDataGroup.headers,
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+}
+
+/// End AttendanceData Group Code
 
 class TimetableapiCall {
   static Future<ApiCallResponse> call() {
